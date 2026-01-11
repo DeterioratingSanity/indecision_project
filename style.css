@@ -41,10 +41,14 @@ tr {
   text-align: left;
 }
 
-
-#new{
+#newRow{
   border: 1px solid #D9DDDC;
   border-collapse: collapse;
   padding: 15px;
   margin-top: -11px;
+  cursor: pointer;
+}
+
+.toggle{
+  cursor: pointer;
 }
