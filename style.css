@@ -53,6 +53,10 @@ tr {
   cursor: pointer;
 }
 
+.active{
+  background-color: #D6CFC7 !important;
+}
+
 .glyph{
   user-select: none;
 }

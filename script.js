@@ -3,6 +3,8 @@ newRow.addEventListener("click", addRow);
 
 var table = document.getElementById("decisions")
 
+var rows = [];
+
 function addRow() {
   var dest = document.getElementById("items");
 
@@ -13,12 +15,25 @@ function addRow() {
   var active = init.insertCell(2);
 
   item.setAttribute('contentEditable', true);
+
+  weight.innerHTML = '1';
+
   weight.setAttribute('contentEditable', true);
 
   active.classList.add('toggle');
+  //active.classList.add('active');
+
+  rows.push(active);
+  rows[rows.length-1].addEventListener("click", engage);
 
   console.log(table.tBodies[0].rows.length)
 }
+
+function engage() {
+  //event.target.innerHTML = "E";
+  event.target.classList.toggle('active');
+}
+
 
 // table.tBodies[0].rows.length
 
@@ -34,20 +49,28 @@ function pickRow() {
 
 function weightedPick(){
 
+  //console.log(table.tBodies[0].rows[0].cells[2].classList.contains("active"));
+
   var weightSum = 0;
   var weightChoice = 0;
 
   for (var i = 0; i < table.tBodies[0].rows.length; i++){
-    weightSum += parseInt(table.tBodies[0].rows[i].cells[1].innerHTML, 10);
-    //console.log(weightSum);
+    if (table.tBodies[0].rows[i].cells[2].classList.contains("active")) {
+      weightSum += parseInt(table.tBodies[0].rows[i].cells[1].innerHTML, 10);
+      console.log("Active row added");
+    }
   }
+  console.log("Weight " + weightSum);
 
   var pick = Math.floor(Math.random() * weightSum);
 
-  console.log(pick);
+  console.log("Pick " + pick);
 
-  while (pick >= parseInt(table.tBodies[0].rows[weightChoice].cells[1].innerHTML, 10)) {
-    pick -= parseInt(table.tBodies[0].rows[weightChoice].cells[1].innerHTML, 10);
+  while (pick >= parseInt(table.tBodies[0].rows[weightChoice].cells[1].innerHTML, 10) || !table.tBodies[0].rows[weightChoice].cells[2].classList.contains("active")) {
+    if (table.tBodies[0].rows[weightChoice].cells[2].classList.contains("active")) {
+      pick -= parseInt(table.tBodies[0].rows[weightChoice].cells[1].innerHTML, 10);
+      console.log("Active row subtracted ");
+    }
     weightChoice++;
   }
 
