@@ -52,3 +52,7 @@ tr {
 .toggle{
   cursor: pointer;
 }
+
+.glyph{
+  user-select: none;
+}
