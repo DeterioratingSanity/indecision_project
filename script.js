@@ -42,7 +42,10 @@ function engage() {
 var nummable = new Set(['Digit1']);
 
 function numChek(e) {
-  console.log("check num? " + e);
+  console.log("check num? ");
+  if (!nummable.has(e.code)){
+    e.preventDefault();
+  }
 }
 
 // table.tBodies[0].rows.length
