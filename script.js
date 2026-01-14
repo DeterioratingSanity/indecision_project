@@ -3,7 +3,9 @@ newRow.addEventListener("click", addRow);
 
 var table = document.getElementById("decisions")
 
-var rows = [];
+var weightRows = [];
+
+var activeRows = [];
 
 function addRow() {
   var dest = document.getElementById("items");
@@ -23,8 +25,11 @@ function addRow() {
   active.classList.add('toggle');
   //active.classList.add('active');
 
-  rows.push(active);
-  rows[rows.length-1].addEventListener("click", engage);
+  weightRows.push(weight);
+  weightRows[weightRows.length-1].addEventListener("keydown", numChek);
+  
+  activeRows.push(active);
+  activeRows[activeRows.length-1].addEventListener("click", engage);
 
   console.log(table.tBodies[0].rows.length)
 }
@@ -34,6 +39,9 @@ function engage() {
   event.target.classList.toggle('active');
 }
 
+function numChek() {
+  console.log("check num");
+}
 
 // table.tBodies[0].rows.length
 
@@ -56,6 +64,7 @@ function weightedPick(){
 
   for (var i = 0; i < table.tBodies[0].rows.length; i++){
     if (table.tBodies[0].rows[i].cells[2].classList.contains("active")) {
+      
       weightSum += parseInt(table.tBodies[0].rows[i].cells[1].innerHTML, 10);
       console.log("Active row added");
     }
