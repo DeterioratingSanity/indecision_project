@@ -39,7 +39,7 @@ function engage() {
   event.target.classList.toggle('active');
 }
 
-var nummable = new Set(['Digit1']);
+var nummable = new Set(['Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Backspace', 'ArrowLeft', 'ArrowRight']);
 
 function numChek(e) {
   console.log("check num? ");
