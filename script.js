@@ -41,7 +41,7 @@ function engage() {
 
 var nummable = new Set(['Digit1']);
 
-function numChek(in) {
+function numChek(e) {
   console.log("check num? " + e);
 }
 
