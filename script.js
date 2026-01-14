@@ -39,8 +39,10 @@ function engage() {
   event.target.classList.toggle('active');
 }
 
-function numChek() {
-  console.log("check num");
+var nummable = new Set(['Digit1']);
+
+function numChek(in) {
+  console.log("check num? " + e);
 }
 
 // table.tBodies[0].rows.length
